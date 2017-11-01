@@ -53,3 +53,24 @@ pageChange(pageState: PageState) {
 }
 ```
 
+## Customize colors
+
+To modify how each page entry would look like you need to provide some css overrides in your component (::ng-deep)
+
+`.page-entry` - each page number entry
+
+and
+
+`.page-entry.active` - active page entry
+
+For example
+```
+ngx-paginate ::ng-deep .page-entry {
+  background-color: black;
+  color: yellow;
+}
+ngx-paginate ::ng-deep .page-entry.active {
+  background-color: blue;
+  color: red;
+}
+```
