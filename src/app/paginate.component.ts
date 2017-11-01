@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  DoCheck,
+  EventEmitter,
+  Input,
+  OnInit,
+  Output,
+  SimpleChanges
+} from '@angular/core';
 
 export class PageState {
   currentPage: number;
@@ -12,7 +20,7 @@ export class PageState {
   templateUrl: './paginate.component.html',
   styleUrls: ['./paginate.component.scss']
 })
-export class NgxPaginateComponent implements OnInit, OnChanges {
+export class NgxPaginateComponent implements OnInit, DoCheck {
   @Input() options: {
     spanPages: number, //  number of how many pages additionally will be shown on left and right
     previousButton: boolean,
@@ -41,6 +49,8 @@ export class NgxPaginateComponent implements OnInit, OnChanges {
     this.range = new Array(this.options.spanPages + 1);
 
     this.calculateRange();
+    this.pageChange.emit(this.page);
+    // this.setPage(this.page.currentPage);
   }
 
   calculateRange() {
@@ -85,20 +95,21 @@ export class NgxPaginateComponent implements OnInit, OnChanges {
       }
     }
 
-    this.pageChange.emit(this.page);
+    // this.pageChange.emit(this.page);
   }
 
   setPage(page: number) {
     if (this.page.currentPage !== page) {
       this.page.currentPage = page;
       this.calculateRange();
+      this.pageChange.emit(this.page);
     }
 
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
 
-    if (changes['page'] && changes['page'].currentValue) {
+  ngDoCheck(): void {
+    if (this.page) {
       this.calculateRange();
     }
   }
