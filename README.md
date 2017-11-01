@@ -4,6 +4,8 @@ Pagination component for your grid (or any other form of data). It's just concer
 
 It calculates how many pages it needs/can display for user to select from based on current page, page size and total items.
 
+![default_options.png](https://user-images.githubusercontent.com/2838038/32286810-faa567f8-bf2e-11e7-8b44-79e6dc197c76.png)
+
 ## Usage
 
 ```
