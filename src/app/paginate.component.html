@@ -1,0 +1,7 @@
+<span class="page-selection">
+  <span
+    *ngFor="let num of range"
+    class="page-entry"
+    [ngClass]="{'active': num === page.currentPage}"
+    (click)="setPage(num)">{{num}}</span>
+</span>

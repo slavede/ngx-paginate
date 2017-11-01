@@ -1,0 +1,20 @@
+.page-selection {
+  display: flex;
+}
+
+.page-entry {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: #EEEDEE;
+  margin: 0 1px;
+  cursor: pointer;
+  &.active {
+    color: white;
+    background-color: rgb(182, 182, 182);
+    cursor: default;
+  }
+}
