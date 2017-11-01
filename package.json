@@ -2,6 +2,17 @@
   "name": "ngx-paginate",
   "version": "0.1.0",
   "license": "MIT",
+  "author" : "Slaven Tomac <slaven.tomac@gmail.com>",
+  "bugs" : {
+      "url" : "https://github.com/slavede/ngx-paginate/issues",
+      "email" : "slaven.tomac@gmail.com"
+  },
+  "homepage" : "https://github.com/slavede/ngx-paginate",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/slavede/ngx-paginate"
+  },
+  "main" : "src/app/paginate.module.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
