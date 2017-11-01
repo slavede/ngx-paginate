@@ -12,4 +12,9 @@ export class AppComponent {
     pageSize : 3,
     totalItems: 100
   };
+
+  pageChange(pageState: PageState) {
+    console.log('Page changed. Reload data with new paging values');
+    console.log(pageState);
+  }
 }

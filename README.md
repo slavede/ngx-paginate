@@ -1,27 +1,53 @@
 # NgxPaginate
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.4.9.
+Pagination component for your grid (or any other form of data). It's just concerned of remembering current page state.
 
-## Development server
+It calculates how many pages it needs/can display for user to select from based on current page, page size and total items.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Usage
 
-## Code scaffolding
+```
+npm install ngx-paginate --save
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Import module
+```
+import { NgxPaginateModule } from 'ngx-paginate/src/app/ngx-paginate.module';
 
-## Build
+@NgModule({
+  imports: [
+    NgxPaginateModule
+    . . .
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Use in your component:
 
-## Running unit tests
+```
+<ngx-paginate
+  [page]="page"
+  (pageChange)='setPage($event)'>
+</ngx-paginate>
+```
+Where page is of type PageState (comes with component as well):
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+export class PageState {
+  currentPage: number;
+  pageSize: number;
+  totalItems?: number;
+  numberOfPages?: number;
+}
+```
 
-## Running end-to-end tests
+And pageChange is triggered each time page is changed via component:
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+```
+pageChange(pageState: PageState) {
+  console.log('Page changed. Reload data with new paging values');
+  // do whatever you need here
+}
+```
+

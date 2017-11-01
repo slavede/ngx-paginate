@@ -1,3 +1,6 @@
 <h4>Default options</h4>
-<ngx-paginate [page]="page"></ngx-paginate>
+<ngx-paginate
+  [page]="page"
+  (pageChange)="pageChange($event)"
+  ></ngx-paginate>
 
