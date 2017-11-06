@@ -4,7 +4,7 @@ Pagination component for your grid (or any other form of data). It's just concer
 
 It calculates how many pages it needs/can display for user to select from based on current page, page size and total items.
 
-![default_options.png](https://user-images.githubusercontent.com/2838038/32286810-faa567f8-bf2e-11e7-8b44-79e6dc197c76.png)
+![demo1](https://user-images.githubusercontent.com/2838038/32465146-c16ce3c2-c342-11e7-855a-a95ab0c4f337.gif)
 
 ## Usage
 
@@ -27,6 +27,7 @@ Use in your component:
 ```
 <ngx-paginate
   [page]="page"
+  [options]="options"
   (pageChange)='setPage($event)'>
 </ngx-paginate>
 ```
@@ -44,7 +45,29 @@ export class PageState {
 And pageChange is triggered each time page is changed via component:
 
 
+Options are type of PaginatieOptions (comes with component as well):
 
+```
+export class PaginateOptions {
+  // number of how many pages additionally will be shown on left and right
+  spanPages: number;
+  // show or hide button for first page (default is true)
+  firstPage: boolean;
+  // show or hide button for previous page (default is true)
+  previousPage: boolean;
+  // show or hide button for next page (default is true)
+  nextPage: boolean;
+  // show or hide button for last page (default is true)
+  lastPage: boolean;
+  // string that will be shown in appropriate boxes (defaults to <<, >>, < and >)
+  titles: {
+    firstPage: string;
+    lastPage: string;
+    previousPage: string;
+    nextPage: string;
+  };
+}
+```
 
 ```
 pageChange(pageState: PageState) {

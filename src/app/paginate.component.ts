@@ -15,42 +15,54 @@ export class PageState {
   numberOfPages?: number;
 }
 
+export class PaginateOptions {
+  spanPages: number; //  number of how many pages additionally will be shown on left and right
+  firstPage: boolean;
+  previousPage: boolean;
+  nextPage: boolean;
+  lastPage: boolean;
+  titles: {
+    firstPage: string;
+    lastPage: string;
+    previousPage: string;
+    nextPage: string;
+  };
+}
+
 @Component({
   selector: 'ngx-paginate',
   templateUrl: './paginate.component.html',
   styleUrls: ['./paginate.component.scss']
 })
 export class NgxPaginateComponent implements OnInit, DoCheck {
-  @Input() options: {
-    spanPages: number, //  number of how many pages additionally will be shown on left and right
-    previousButton: boolean,
-    nextButton: boolean,
-    firstPage: boolean,
-    lastPage: boolean,
-  } = {
+  @Input() options: PaginateOptions = {
     spanPages : 2,
-    previousButton: false,
-    nextButton: false,
-    firstPage: false,
-    lastPage: false
+    previousPage: true,
+    nextPage: true,
+    firstPage: true,
+    lastPage: true,
+    titles: {
+      firstPage: '<<',
+      previousPage: '<',
+      lastPage: '>>',
+      nextPage: '>'
+    }
   };
 
   @Input() page: PageState;
   @Output() pageChange = new EventEmitter<PageState>();
 
-  @Input() noMoreItems: boolean; // when there is no more item, don't show span going over current page
 
   constructor() {
     this.range = [];
   }
 
-  range: any[];
+  range: number[];
   ngOnInit() {
-    this.range = new Array(this.options.spanPages + 1);
+    this.range = [];
 
     this.calculateRange();
     this.pageChange.emit(this.page);
-    // this.setPage(this.page.currentPage);
   }
 
   calculateRange() {
@@ -105,6 +117,18 @@ export class NgxPaginateComponent implements OnInit, DoCheck {
       this.pageChange.emit(this.page);
     }
 
+  }
+
+  previousPage() {
+    if (this.page.currentPage > 1) {
+      this.setPage(this.page.currentPage - 1);
+    }
+  }
+
+  nextPage() {
+    if (this.page.currentPage < this.page.numberOfPages) {
+      this.setPage(this.page.currentPage + 1);
+    }
   }
 
 

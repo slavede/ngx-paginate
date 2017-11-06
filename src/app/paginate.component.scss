@@ -1,3 +1,6 @@
+:host {
+  display: flex;
+}
 .page-selection {
   display: flex;
   justify-content: center;
@@ -16,6 +19,10 @@
   &.active {
     color: white;
     background-color: rgb(182, 182, 182);
+    cursor: default;
+  }
+  &.disabled {
+    opacity: 0.3;
     cursor: default;
   }
 }

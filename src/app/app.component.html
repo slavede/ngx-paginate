@@ -4,3 +4,7 @@
   (pageChange)="pageChange($event)"
   ></ngx-paginate>
 
+<div *ngIf="currentChange">
+    <span>Page change occured, update your data.</span>
+    <pre>{{currentChange | json}}</pre>
+</div>

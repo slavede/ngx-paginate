@@ -13,8 +13,14 @@ export class AppComponent {
     totalItems: 100
   };
 
+  currentChange;
   pageChange(pageState: PageState) {
     console.log('Page changed. Reload data with new paging values');
     console.log(pageState);
+    this.currentChange = undefined;
+    setTimeout(() => {
+      this.currentChange = pageState;
+    }, 125);
+
   }
 }
