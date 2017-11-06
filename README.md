@@ -42,10 +42,8 @@ export class PageState {
 }
 ```
 
-And pageChange is triggered each time page is changed via component:
 
-
-Options are type of PaginatieOptions (comes with component as well):
+Options are type of PaginateOptions (comes with component as well):
 
 ```
 export class PaginateOptions {
@@ -68,6 +66,8 @@ export class PaginateOptions {
   };
 }
 ```
+
+And pageChange is triggered each time page is changed via component:
 
 ```
 pageChange(pageState: PageState) {
