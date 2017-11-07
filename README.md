@@ -14,7 +14,7 @@ npm install ngx-paginate --save
 
 Import module
 
-```bash
+```ts
 import { NgxPaginateModule } from 'ngx-paginate/src/app/ngx-paginate.module';
 
 @NgModule({
