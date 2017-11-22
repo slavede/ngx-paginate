@@ -1,35 +1,43 @@
-<span
-  class="prev-button page-entry"
-  *ngIf="options.previousPage"
-  (click)="setPage(1)"
-  [ngClass]="{'disabled':page.currentPage === 1}">
-  {{options.titles.firstPage}}
-</span>
-<span
-  class="prev-button page-entry"
-  *ngIf="options.previousPage"
-  (click)="previousPage()"
-  [ngClass]="{'disabled':page.currentPage === 1}">
-  {{options.titles.previousPage}}
-</span>
-<span class="page-selection">
+<div class="page-size-selection">
+  <span>{{internalOptions.titles.pageSize}}</span>
+  <select (change)="setPageSize($event.target.value)">
+    <option *ngFor="let opt of internalOptions.pageSizes">{{opt.display}}</option>
+  </select>
+</div>
+<div class="pages">
   <span
-    *ngFor="let num of range"
-    class="page-entry"
-    [ngClass]="{'active': num === page.currentPage}"
-    (click)="setPage(num)">{{num}}</span>
-</span>
-<span
-  class="next-button page-entry"
-  *ngIf="options.nextPage"
-  (click)="nextPage()"
-  [ngClass]="{'disabled':page.currentPage === page.numberOfPages}">
-    {{options.titles.nextPage}}
-</span>
-<span
-  class="prev-button page-entry"
-  *ngIf="options.previousPage"
-  (click)="setPage(page.numberOfPages)"
-  [ngClass]="{'disabled':page.currentPage === page.numberOfPages}">
-  {{options.titles.lastPage}}
-</span>
+    class="prev-button page-entry"
+    *ngIf="internalOptions.previousPage"
+    (click)="setPage(1)"
+    [ngClass]="{'disabled':page.currentPage === 1}">
+    {{internalOptions.titles.firstPage}}
+  </span>
+  <span
+    class="prev-button page-entry"
+    *ngIf="internalOptions.previousPage"
+    (click)="previousPage()"
+    [ngClass]="{'disabled':page.currentPage === 1}">
+    {{internalOptions.titles.previousPage}}
+  </span>
+  <span class="page-selection">
+    <span
+      *ngFor="let num of range"
+      class="page-entry"
+      [ngClass]="{'active': num === page.currentPage}"
+      (click)="setPage(num)">{{num}}</span>
+  </span>
+  <span
+    class="next-button page-entry"
+    *ngIf="internalOptions.nextPage"
+    (click)="nextPage()"
+    [ngClass]="{'disabled':page.currentPage === page.numberOfPages}">
+      {{internalOptions.titles.nextPage}}
+  </span>
+  <span
+    class="prev-button page-entry"
+    *ngIf="internalOptions.previousPage"
+    (click)="setPage(page.numberOfPages)"
+    [ngClass]="{'disabled':page.currentPage === page.numberOfPages}">
+    {{internalOptions.titles.lastPage}}
+  </span>
+</div>

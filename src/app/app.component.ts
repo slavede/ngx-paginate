@@ -9,7 +9,7 @@ import { PageState } from './paginate.component';
 export class AppComponent {
   page: PageState = {
     currentPage : 1,
-    pageSize : 3,
+    pageSize : 5,
     totalItems: 100
   };
 

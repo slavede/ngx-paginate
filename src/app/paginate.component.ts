@@ -1,12 +1,4 @@
-import {
-  Component,
-  DoCheck,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  SimpleChanges
-} from '@angular/core';
+import { Component, DoCheck, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 
 export class PageState {
   currentPage: number;
@@ -21,37 +13,56 @@ export class PaginateOptions {
   previousPage: boolean;
   nextPage: boolean;
   lastPage: boolean;
-  titles: {
+  pageSizes?: {
+    value: number,
+    display: string
+  }[];
+  titles?: {
     firstPage: string;
     lastPage: string;
     previousPage: string;
     nextPage: string;
+    pageSize: string;
   };
 }
+
+const defaults: PaginateOptions = {
+  spanPages : 2,
+  previousPage: true,
+  nextPage: true,
+  firstPage: true,
+  lastPage: true,
+  titles: {
+    firstPage: 'First',
+    previousPage: 'Previous',
+    lastPage: 'Last',
+    nextPage: 'Next',
+    pageSize: 'Items per page'
+  },
+  pageSizes: [{
+    value: 5,
+    display: '5'
+  }, {
+    value: 10,
+    display: '10'
+  }, {
+    value: 15,
+    display: '15'
+  }]
+};
 
 @Component({
   selector: 'ngx-paginate',
   templateUrl: './paginate.component.html',
   styleUrls: ['./paginate.component.scss']
 })
-export class NgxPaginateComponent implements OnInit, DoCheck {
-  @Input() options: PaginateOptions = {
-    spanPages : 2,
-    previousPage: true,
-    nextPage: true,
-    firstPage: true,
-    lastPage: true,
-    titles: {
-      firstPage: '<<',
-      previousPage: '<',
-      lastPage: '>>',
-      nextPage: '>'
-    }
-  };
+export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
+
+  internalOptions: PaginateOptions;
+  @Input() options: PaginateOptions;
 
   @Input() page: PageState;
   @Output() pageChange = new EventEmitter<PageState>();
-
 
   constructor() {
     this.range = [];
@@ -60,8 +71,35 @@ export class NgxPaginateComponent implements OnInit, DoCheck {
   range: number[];
   ngOnInit() {
     this.range = [];
+    this.setOptions();
 
     this.calculateRange();
+    this.pageChange.emit(this.page);
+  }
+
+  setOptions() {
+    if (!this.options) {
+      this.options = defaults;
+    }
+    this.internalOptions = {
+      spanPages: this.options.spanPages || defaults.spanPages,
+      previousPage: this.options.previousPage || defaults.previousPage,
+      nextPage: this.options.nextPage || defaults.nextPage,
+      firstPage: this.options.firstPage || defaults.firstPage,
+      lastPage: this.options.lastPage || defaults.lastPage,
+      titles: {
+        firstPage: this.options.titles.firstPage || defaults.titles.firstPage,
+        previousPage: this.options.titles.previousPage || defaults.titles.previousPage,
+        lastPage: this.options.titles.lastPage || defaults.titles.lastPage,
+        nextPage: this.options.titles.nextPage || defaults.titles.nextPage,
+        pageSize: this.options.titles.pageSize || defaults.titles.pageSize
+      },
+      pageSizes: this.options.pageSizes || defaults.pageSizes.slice()
+    };
+  }
+
+  setPageSize(pageSize) {
+    this.page.pageSize = parseInt(pageSize, 10);
     this.pageChange.emit(this.page);
   }
 
@@ -107,7 +145,6 @@ export class NgxPaginateComponent implements OnInit, DoCheck {
       }
     }
 
-    // this.pageChange.emit(this.page);
   }
 
   setPage(page: number) {
@@ -116,7 +153,6 @@ export class NgxPaginateComponent implements OnInit, DoCheck {
       this.calculateRange();
       this.pageChange.emit(this.page);
     }
-
   }
 
   previousPage() {
@@ -131,10 +167,15 @@ export class NgxPaginateComponent implements OnInit, DoCheck {
     }
   }
 
-
   ngDoCheck(): void {
     if (this.page) {
       this.calculateRange();
+    }
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['options'] && changes['options'].currentValue) {
+      this.setOptions();
     }
   }
 }
