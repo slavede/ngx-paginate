@@ -4,7 +4,7 @@ Pagination component for your grid (or any other form of data). It's just concer
 
 It calculates how many pages it needs/can display for user to select from based on current page, page size and total items.
 
-![demo1](https://user-images.githubusercontent.com/2838038/32465146-c16ce3c2-c342-11e7-855a-a95ab0c4f337.gif)
+![demo1](https://user-images.githubusercontent.com/2838038/33149056-7e92abd4-cfce-11e7-9c2e-313c122bc612.gif)
 
 ## Usage
 
@@ -66,7 +66,46 @@ export class PaginateOptions {
     previousPage: string;
     nextPage: string;
   };
+  // which values to allow to change page for
+  pageSizes: [{
+    value: 5,
+    display: '5'
+  }, {
+    value: 10,
+    display: '10'
+  }, {
+    value: 15,
+    display: '15'
+  }]
 }
+```
+
+Default options are:
+```TS
+const defaults: PaginateOptions = {
+  spanPages : 2,
+  previousPage: true,
+  nextPage: true,
+  firstPage: true,
+  lastPage: true,
+  titles: {
+    firstPage: 'First',
+    previousPage: 'Previous',
+    lastPage: 'Last',
+    nextPage: 'Next',
+    pageSize: 'Items per page'
+  },
+  pageSizes: [{
+    value: 5,
+    display: '5'
+  }, {
+    value: 10,
+    display: '10'
+  }, {
+    value: 15,
+    display: '15'
+  }]
+};
 ```
 
 And pageChange is triggered each time page is changed via component:
