@@ -8,23 +8,25 @@ It calculates how many pages it needs/can display for user to select from based 
 
 ## Usage
 
-```
+```bash
 npm install ngx-paginate --save
 ```
 
 Import module
-```
+
+```ts
 import { NgxPaginateModule } from 'ngx-paginate/src/app/ngx-paginate.module';
 
 @NgModule({
   imports: [
     NgxPaginateModule
-    . . .
+  ]
+})
 ```
 
 Use in your component:
 
-```
+```html
 <ngx-paginate
   [page]="page"
   [options]="options"
@@ -33,7 +35,7 @@ Use in your component:
 ```
 Where page is of type PageState (comes with component as well):
 
-```
+```ts
 export class PageState {
   currentPage: number;
   pageSize: number;
@@ -45,7 +47,7 @@ export class PageState {
 
 Options are type of PaginateOptions (comes with component as well):
 
-```
+```ts
 export class PaginateOptions {
   // number of how many pages additionally will be shown on left and right
   spanPages: number;
@@ -69,7 +71,7 @@ export class PaginateOptions {
 
 And pageChange is triggered each time page is changed via component:
 
-```
+```ts
 pageChange(pageState: PageState) {
   console.log('Page changed. Reload data with new paging values');
   // do whatever you need here
@@ -87,7 +89,8 @@ and
 `.page-entry.active` - active page entry
 
 For example
-```
+
+```scss
 ngx-paginate ::ng-deep .page-entry {
   background-color: black;
   color: yellow;
