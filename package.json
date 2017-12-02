@@ -1,25 +1,26 @@
 {
   "name": "ngx-paginate",
-  "version": "0.9.1",
+  "version": "1.0.0",
   "license": "MIT",
-  "author" : "Slaven Tomac <slaven.tomac@gmail.com>",
-  "bugs" : {
-      "url" : "https://github.com/slavede/ngx-paginate/issues",
-      "email" : "slaven.tomac@gmail.com"
+  "author": "Slaven Tomac <slaven.tomac@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/slavede/ngx-paginate/issues",
+    "email": "slaven.tomac@gmail.com"
   },
-  "homepage" : "https://github.com/slavede/ngx-paginate",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/slavede/ngx-paginate"
+  "homepage": "https://github.com/slavede/ngx-paginate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/slavede/ngx-paginate"
   },
-  "main" : "src/app/paginate.module.ts",
+  "main": "src/app/paginate.module.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "packagr": "ng-packagr -p ng-package.json"
   },
   "dependencies": {
     "@angular/animations": ">=4.0.0",
@@ -51,6 +52,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^1.6.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
