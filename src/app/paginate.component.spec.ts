@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NgxPaginateComponent } from './paginate.component';
 
-fdescribe('NgxPaginateComponent', () => {
+describe('NgxPaginateComponent', () => {
   let component: NgxPaginateComponent;
   let fixture: ComponentFixture<NgxPaginateComponent>;
 
@@ -145,4 +145,46 @@ fdescribe('NgxPaginateComponent', () => {
 
     expect(component.range).toEqual([1, 2, 3]);
   });
+});
+
+describe('NgxPaginateComponent with options', () => {
+  let component: NgxPaginateComponent;
+  let fixture: ComponentFixture<NgxPaginateComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ NgxPaginateComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(NgxPaginateComponent);
+    component = fixture.componentInstance;
+
+    component.page = {
+      currentPage: 1,
+      pageSize: 5,
+      totalItems: 89
+    };
+
+    component.options = {
+      spanPages: 3, //  number of how many pages additionally will be shown on left and right
+      firstPage: true,
+      previousPage: true,
+      nextPage: true,
+      lastPage: true,
+      pageSizes: [{
+        value : 5,
+        display : 'Five'
+      }]
+    };
+
+    fixture.detectChanges();
+  });
+
+  it ('should create component without titles given', () => {
+    expect(component).toBeTruthy();
+  });
+
 });

@@ -81,6 +81,10 @@ export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
     if (!this.options) {
       this.options = defaults;
     }
+
+    if (!this.options.titles) {
+      this.options.titles = defaults.titles;
+    }
     this.internalOptions = {
       spanPages: this.options.spanPages || defaults.spanPages,
       previousPage: this.options.previousPage || defaults.previousPage,
