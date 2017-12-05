@@ -1,6 +1,6 @@
 {
   "name": "ngx-paginate",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "author": "Slaven Tomac <slaven.tomac@gmail.com>",
   "bugs": {
@@ -56,6 +56,6 @@
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
-    "typescript": "~2.3.3"
+    "typescript": ">=2.3.0 && <= 2.4.x"
   }
 }
