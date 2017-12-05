@@ -8,21 +8,21 @@ export class PageState {
 }
 
 export class PaginateOptions {
-  spanPages: number; //  number of how many pages additionally will be shown on left and right
-  firstPage: boolean;
-  previousPage: boolean;
-  nextPage: boolean;
-  lastPage: boolean;
+  spanPages?: number; //  number of how many pages additionally will be shown on left and right
+  firstPage?: boolean;
+  previousPage?: boolean;
+  nextPage?: boolean;
+  lastPage?: boolean;
   pageSizes?: {
     value: number,
     display: string
   }[];
   titles?: {
-    firstPage: string;
-    lastPage: string;
-    previousPage: string;
-    nextPage: string;
-    pageSize: string;
+    firstPage?: string;
+    lastPage?: string;
+    previousPage?: string;
+    nextPage?: string;
+    pageSize?: string;
   };
 }
 
@@ -87,10 +87,10 @@ export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
     }
     this.internalOptions = {
       spanPages: this.options.spanPages || defaults.spanPages,
-      previousPage: this.options.previousPage || defaults.previousPage,
-      nextPage: this.options.nextPage || defaults.nextPage,
-      firstPage: this.options.firstPage || defaults.firstPage,
-      lastPage: this.options.lastPage || defaults.lastPage,
+      previousPage: this.options.previousPage !== undefined ? this.options.previousPage : defaults.previousPage,
+      nextPage: this.options.nextPage !== undefined ? this.options.nextPage : defaults.nextPage,
+      firstPage: this.options.firstPage !== undefined ? this.options.firstPage : defaults.firstPage,
+      lastPage: this.options.lastPage !== undefined ? this.options.lastPage : defaults.lastPage,
       titles: {
         firstPage: this.options.titles.firstPage || defaults.titles.firstPage,
         previousPage: this.options.titles.previousPage || defaults.titles.previousPage,
