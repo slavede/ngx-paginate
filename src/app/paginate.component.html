@@ -7,7 +7,7 @@
 <div class="pages">
   <span
     class="prev-button page-entry"
-    *ngIf="internalOptions.previousPage"
+    *ngIf="internalOptions.firstPage"
     (click)="setPage(1)"
     [ngClass]="{'disabled':page.currentPage === 1}">
     {{internalOptions.titles.firstPage}}
@@ -35,7 +35,7 @@
   </span>
   <span
     class="prev-button page-entry"
-    *ngIf="internalOptions.previousPage"
+    *ngIf="internalOptions.lastPage"
     (click)="setPage(page.numberOfPages)"
     [ngClass]="{'disabled':page.currentPage === page.numberOfPages}">
     {{internalOptions.titles.lastPage}}
