@@ -110,6 +110,10 @@ export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
   calculateRange() {
     this.range.length = 0;
     this.page.numberOfPages = Math.ceil(this.page.totalItems / this.page.pageSize);
+
+    if (this.page.numberOfPages === 0) {
+      this.page.numberOfPages = 1;
+    }
     let upperSpan;
 
     // if we can add span in front of current page, add it

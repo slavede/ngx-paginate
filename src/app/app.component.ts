@@ -10,7 +10,7 @@ export class AppComponent {
   page: PageState = {
     currentPage : 1,
     pageSize : 5,
-    totalItems: 100
+    totalItems: 5
   };
 
   currentChange;
