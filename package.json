@@ -1,6 +1,6 @@
 {
   "name": "ngx-paginate",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "author": "Slaven Tomac <slaven.tomac@gmail.com>",
   "bugs": {
@@ -23,18 +23,18 @@
     "packagr": "ng-packagr -p ng-package.json"
   },
   "dependencies": {
-    "@angular/animations": ">=4.0.0",
-    "@angular/common": ">=4.0.0",
-    "@angular/compiler": ">=4.0.0",
-    "@angular/core": ">=4.0.0",
-    "@angular/forms": ">=4.0.0",
-    "@angular/http": ">=4.0.0",
-    "@angular/platform-browser": ">=4.0.0",
-    "@angular/platform-browser-dynamic": ">=4.0.0",
-    "@angular/router": ">=4.0.0",
-    "core-js": ">=2.4.1",
-    "rxjs": ">=5.4.2",
-    "zone.js": ">=0.8.14"
+    "@angular/animations": ">=4.0.0 && <= 5.x",
+    "@angular/common": ">=4.0.0 && <= 5.x",
+    "@angular/compiler": ">=4.0.0 && <= 5.x",
+    "@angular/core": ">=4.0.0 && <= 5.x",
+    "@angular/forms": ">=4.0.0 && <= 5.x",
+    "@angular/http": ">=4.0.0 && <= 5.x",
+    "@angular/platform-browser": ">=4.0.0 && <= 5.x",
+    "@angular/platform-browser-dynamic": ">=4.0.0 && <= 5.x",
+    "@angular/router": ">=4.0.0 && <= 5.x",
+    "core-js": "^2.4.1",
+    "rxjs": ">=5.4.1 && <=5.5.5",
+    "zone.js": "^0.8.14"
   },
   "devDependencies": {
     "@angular/cli": "1.4.9",
@@ -55,7 +55,7 @@
     "ng-packagr": "^1.6.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
-    "tslint": "~5.7.0",
-    "typescript": ">=2.3.0 && <= 2.4.x"
+    "tslint": ">=5.3.2 && <=5.7.0",
+    "typescript": ">=2.3.3 && <=2.6.x"
   }
 }
