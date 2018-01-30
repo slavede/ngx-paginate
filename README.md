@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/slavede/ngx-paginate.svg?branch=master)](https://travis-ci.org/slavede/ngx-paginate)
+
 # NgxPaginate
 
 Pagination component for your grid (or any other form of data). It's just concerned of remembering current page state.
