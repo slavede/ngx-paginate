@@ -21,7 +21,7 @@
     "test-dev": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json && \"./src/assets/**/*\" ./dist/assets",
+    "packagr": "ng-packagr -p ng-package.json",
     "preversion": "node scripts/ng-packagr-deps.js",
     "version": "npm run packagr && npm publish dist && node scripts/ng-packagr-deps-revert.js",
     "postversion": "git push origin master && git push origin --tags",
