@@ -3,4 +3,4 @@ node_js:
   - "node"
 script:
   - npm install ng-packagr -g
-  - ng-packagr -p package.json
+  - npm run test-packagr
