@@ -2,7 +2,7 @@
 
 # NgxPaginate
 
-Pagination component for your grid (or any other form of data). It's just concerned of remembering current page state.
+Angular pagination component for your grid (or any other form of data). It's just concerned of remembering current page state.
 
 It calculates how many pages it needs/can display for user to select from based on current page, page size and total items.
 
