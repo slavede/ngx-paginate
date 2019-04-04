@@ -1,8 +1,6 @@
 language: node_js
 node_js:
   - "node"
-  - "6"
 script:
-  - npm test
   - npm install ng-packagr -g
   - ng-packagr -p package.json
