@@ -4,7 +4,8 @@
 
 **BREAKING CHANGES:**
 
-(pageChange) not emitted when changing page size. New event emitter added called pageSizeChange
+* (pageChange) not emitted when changing page size. New event emitter added called pageSizeChange
+* not triggering pageChange on init (kind of bugfix)
 
 ## [1.1.0] - 2019-04-04
 

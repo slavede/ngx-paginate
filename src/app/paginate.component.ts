@@ -75,7 +75,7 @@ export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
     this.setOptions();
 
     this.calculateRange();
-    this.pageChange.emit(this.page);
+    // this.pageChange.emit(this.page);
   }
 
   setOptions() {

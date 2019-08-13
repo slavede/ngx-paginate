@@ -145,11 +145,19 @@ ngx-paginate ::ng-deep .page-entry.active {
 
 # Changelog
 
-## [2.0.0] - 2019-04-04
+# Changelog
+
+## [2.0.1] - 2019-08-13
 
 **BREAKING CHANGES:**
 
-(pageChange) not emitted when changing page size. New event emitter added called pageSizeChange
+* not triggering pageChange on init (kind of bugfix)
+
+## [2.0.0] - 2019-08-13
+
+**BREAKING CHANGES:**
+* (pageChange) not emitted when changing page size. New event emitter added called pageSizeChange
+
 
 ## [1.1.0] - 2019-04-04
 
