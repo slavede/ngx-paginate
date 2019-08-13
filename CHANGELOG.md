@@ -1,5 +1,11 @@
 # Changelog
 
+## [2.0.0] - 2019-04-04
+
+**BREAKING CHANGES:**
+
+(pageChange) not emitted when changing page size. New event emitter added called pageSizeChange
+
 ## [1.1.0] - 2019-04-04
 
 Improved build system.

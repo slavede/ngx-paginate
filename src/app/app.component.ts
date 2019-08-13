@@ -10,12 +10,13 @@ export class AppComponent {
   page: PageState = {
     currentPage : 1,
     pageSize : 5,
-    totalItems: 5
+    totalItems: 55
   };
+  textToShow: string;
 
   currentChange;
-  pageChange(pageState: PageState) {
-    console.log('Page changed. Reload data with new paging values');
+  pageChange(pageState: PageState, isPageSizeChange = false) {
+    this.textToShow = `Page changed. Reload data with new paging values, isPageSizeChange: ${isPageSizeChange}`;
     console.log(pageState);
     this.currentChange = undefined;
     setTimeout(() => {

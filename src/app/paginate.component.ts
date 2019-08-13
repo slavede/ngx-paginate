@@ -63,6 +63,7 @@ export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
 
   @Input() page: PageState;
   @Output() pageChange = new EventEmitter<PageState>();
+  @Output() pageSizeChange = new EventEmitter<PageState>();
 
   constructor() {
     this.range = [];
@@ -104,7 +105,8 @@ export class NgxPaginateComponent implements OnInit, DoCheck, OnChanges {
 
   setPageSize(pageSize) {
     this.page.pageSize = parseInt(pageSize, 10);
-    this.pageChange.emit(this.page);
+    // this.pageChange.emit(this.page);
+    this.pageSizeChange.emit(this.page);
   }
 
   calculateRange() {
