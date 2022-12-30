@@ -28,7 +28,7 @@
         "test-packagr": "node scripts/ng-packagr-deps.js && npm run packagr && node scripts/ng-packagr-deps-revert.js"
     },
     "devDependencies": {
-        "@angular-devkit/build-angular": "~0.11.0",
+        "@angular-devkit/build-angular": "~15.0.4",
         "@angular/cli": "~7.1.1",
         "@angular/compiler-cli": "^7.1.1",
         "@angular/language-service": "^7.1.1",
